@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/09 11:21:21 by cter-maa      #+#    #+#                 */
-/*   Updated: 2023/01/03 13:23:41 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/03/07 14:01:28 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@
 # include <string.h>
 
 // FUNCTIONS
-int		ft_strlen(char *str);
-char	*ft_strjoin(char *file, char *buffer);
+int		string_lenght(char *str);
+char	*string_join(char *file, char *buffer);
 char	*readfile(int fd, char *line, char *buff);
 char	*get_next_line(int fd);
-int		ft_strchr(char *s, char c);
-int		ft_strchr_index(char *buff, char c);
-void	ft_cleanbuff(char *buff);
+int		string_search(char *s, char c);
+int		search_index(char *buff, char c);
+void	clean_buffer(char *buff);
 
 #endif

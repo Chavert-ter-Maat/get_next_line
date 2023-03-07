@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/23 13:34:53 by cter-maa      #+#    #+#                 */
-/*   Updated: 2023/02/13 12:06:06 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/03/07 14:00:02 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ char	*readfile(int fd, char *line, char *buffer)
 
 	if (buffer[0] != '\0')
 	{
-		line = ft_strjoin(line, buffer);
+		line = string_join(line, buffer);
 		if (!line)
 			return (NULL);
 	}
-	while (!(ft_strchr(buffer, '\n')))
+	while (!(string_search(buffer, '\n')))
 	{
 		bytesread = read(fd, buffer, BUFFER_SIZE);
 		if (bytesread == -1)
@@ -30,7 +30,7 @@ char	*readfile(int fd, char *line, char *buffer)
 		buffer[bytesread] = '\0';
 		if (bytesread == 0 && line[0] == '\0')
 			return (free(line), NULL);
-		line = ft_strjoin(line, buffer);
+		line = string_join(line, buffer);
 		if (!line)
 			return (NULL);
 		if (bytesread < BUFFER_SIZE)
@@ -53,7 +53,7 @@ char	*get_next_line(int fd)
 	line = readfile(fd, line, buffer);
 	if (!line)
 		return (buffer[0] = '\0', NULL);
-	ft_cleanbuff(buffer);
+	clean_buffer(buffer);
 	return (line);
 }
 
@@ -63,7 +63,7 @@ int	main(void)
 	char	*line;
 	int		nb;
 
-	fd1 = open("file1.txt", O_RDONLY);
+	fd1 = open("file", O_RDONLY);
 	if (fd1 == -1)
 		{
 			printf("open() failded");

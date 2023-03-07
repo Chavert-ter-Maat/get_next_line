@@ -6,13 +6,13 @@
 /*   By: cter-maa <cter-maa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/09 11:19:03 by cter-maa      #+#    #+#                 */
-/*   Updated: 2023/02/13 12:01:49 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/03/07 14:01:28 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-int	ft_strlen(char *str)
+int	string_lenght(char *str)
 {
 	int	index;
 
@@ -22,7 +22,7 @@ int	ft_strlen(char *str)
 	return (index);
 }
 
-int	ft_strchr(char *buff, char c)
+int	string_search(char *buff, char c)
 {
 	if (!buff)
 		return (0);
@@ -35,7 +35,7 @@ int	ft_strchr(char *buff, char c)
 	return (0);
 }
 
-int	ft_strchr_index(char *buff, char c)
+int	search_index(char *buff, char c)
 {
 	int	index;
 
@@ -49,11 +49,11 @@ int	ft_strchr_index(char *buff, char c)
 	return (index);
 }
 
-char	*ft_strjoin(char *line, char *buff)
+char	*string_join(char *line, char *buff)
 {
 	int			index;
 	int			j;
-	const int	len = ft_strlen(line) + ft_strchr_index(buff, '\n');
+	const int	len = string_lenght(line) + search_index(buff, '\n');
 	char		*new_line;
 
 	new_line = malloc(sizeof(char) * (len + 1));
@@ -74,7 +74,7 @@ char	*ft_strjoin(char *line, char *buff)
 	return (free(line), new_line);
 }
 
-void	ft_cleanbuff(char *buff)
+void	clean_buffer(char *buff)
 {
 	int	index;
 	int	index_reset;
